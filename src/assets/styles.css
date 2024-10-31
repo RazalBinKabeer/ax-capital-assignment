@@ -6,18 +6,21 @@
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: sans-serif;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .product-listing {
-  height: 95vh;
-  width: 55vw;
+  min-height: 90vh;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 5px 0 #000;
+  overflow-y: auto;
 }
 
 h3 {
@@ -35,7 +38,7 @@ h3 {
 /* Main Content */
 .main-content {
   width: 100%;
-  height: 75%;
+  min-height: 75%;
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.333);
   padding: 10px;
@@ -309,6 +312,7 @@ h3 {
   border-top: 1px solid rgba(0, 0, 0, 0.333);
   align-items: center;
   height: 8%;
+  padding: 5px;
 }
 
 .btn {
