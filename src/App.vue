@@ -5,55 +5,17 @@
     </div>
 
     <div class="main-content">
-      <div class="input-container">
-        <label>Title</label>
-        <input type="text" class="title-input" v-model="title" />
-
-        <label>Price</label>
-        <input
-          type="text"
-          class="price-input"
-          v-model="price"
-          @input="updatePrice($event.target.value)"
-        />
-
-        <div class="description-container">
-          <div class="description-options">
-            <button><i class="fa-solid fa-bold"></i></button>
-            <button><i class="fa-solid fa-underline"></i></button>
-            <button><i class="fa-solid fa-italic"></i></button>
-            <button><i class="fa-solid fa-strikethrough"></i></button>
-            <button><i class="fa-solid fa-align-left"></i></button>
-            <button><i class="fa-solid fa-align-center"></i></button>
-            <button><i class="fa-solid fa-align-right"></i></button>
-            <button><i class="fa-solid fa-align-justify"></i></button>
-          </div>
-          <textarea
-            name="description"
-            class="description-input"
-            v-model="description"
-          ></textarea>
-          <p>{{ description.length }}</p>
-        </div>
-
-        <div class="amenities-container">
-          <p class="amenities-title">Select amenities:</p>
-          <p class="amenities-note">
-            Note: You can only select upto 9 amenities for the selected template
-          </p>
-
-          <div class="amenities-buttons">
-            <button
-              v-for="amenity in amenities"
-              :key="amenity"
-              :class="{ selected: isAmenitySelected(amenity) }"
-              @click="toggleAmenity(amenity)"
-            >
-              {{ amenity }}
-            </button>
-          </div>
-        </div>
-      </div>
+      <InputContainer
+        :title="title"
+        :price="price"
+        :description="description"
+        :selectedAmenities="selectedAmenities"
+        :amenities="amenities"
+        @update:title="title = $event"
+        @update:price="price = $event"
+        @update:description="description = $event"
+        @update:selectedAmenities="selectedAmenities = $event"
+      />
       <div class="preview-container" ref="previewContainer">
         <div class="location-price">
           <p class="location">
@@ -193,9 +155,13 @@
 </template>
 
 <script>
+import InputContainer from "./components/InputContainer.vue";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 export default {
+  components: {
+    InputContainer,
+  },
   data() {
     return {
       title: "",
