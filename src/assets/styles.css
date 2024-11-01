@@ -229,6 +229,7 @@ h3 {
 .preview-description-container .description {
   width: 60%;
   font-size: 10px;
+  min-height: 70px;
 }
 
 .description h4 {
