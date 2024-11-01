@@ -129,7 +129,7 @@ h3 {
 
 .amenities-buttons button {
   border: none;
-  background-color: #e3d7e7;
+  background-color: #e8e5fd;
   padding: 5px 10px;
   margin: 0 2px;
   margin-top: 5px;
@@ -141,7 +141,7 @@ h3 {
 }
 
 .amenities-buttons button.selected {
-  background-color: #8500b9;
+  background-color: #2f5981;
   color: #fff;
 }
 
